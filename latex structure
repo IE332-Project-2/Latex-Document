@@ -1,0 +1,237 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+%  USE PACKAGES  ---------------------- 
+\usepackage[margin=0.7in,vmargin=1in]{geometry}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{hyperref,color}
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{4}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\HREF}[2]{\href{#1}{#2}}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{longtable}
+\lstset{
+basicstyle=\small\ttfamily,
+% columns=flexible,
+upquote=true,
+breaklines=true,
+showstringspaces=false
+}
+%  -------------------------------------------- 
+
+%  HEADER AND FOOTER (DO NOT EDIT) ----------------------
+\newcommand{\problemnumber}{0}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\textbf{Question \problemnumber}}
+\newcommand{\newquestion}[1]{
+\clearpage % page break and flush floats
+\renewcommand{\problemnumber}{\#1} % set problem number for header
+\phantom{}  % Put something on the page so it shows
+}
+\fancyfoot[L]{IE 332}
+\fancyfoot[C]{Project \#2 Report}
+\fancyfoot[R]{Page \thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%  --------------------------------------------
+
+
+%  COVER SHEET (FILL IN THE TABLE AS INSTRUCTED IN THE ASSIGNMENT) ----------------------
+\newcommand{\addcoversheet}{
+\clearpage
+\thispagestyle{empty}
+\vspace*{0.5in}
+
+\begin{center}
+\Huge{{\bf IE 332 Project \#2}} % <-- replace with correct assignment #
+
+Due: April 28th, 11:59pm EST % <-- replace with correct due date and time
+\end{center}
+
+\vspace{0.3in}
+
+\noindent We have {\bf read and understood the assignment instructions}. We certify that the submitted work does not violate any academic misconduct rules, and that it is solely our own work. By listing our names below we acknowledge that any misconduct will result in appropriate consequences. 
+
+\vspace{0.2in}
+
+\noindent {\em ``As a Boilermaker pursuing academic excellence, I pledge to be honest and true in all that I do.
+Accountable together -- we are Purdue.''}
+
+\vspace{0.3in}
+
+\begin{table}[h!]
+  \begin{center}
+    \label{tab:table1}
+    \begin{tabular}{c|ccccc|c|c}
+      Student & Sub-Algorithm Development & Main-Algorithm Development & Report & Q4 & Q5 & Overall & DIFF\\
+      \hline
+      Andrew Smith & 10 & 10 & 10 & 10 & 60 & 100 & 0\\
+      Halle Lin & 10 & 60 & 10 & 10 & 10 & 100 & 0\\
+      Mo Ardahji & 60 & 10 & 10 & 10 & 10 & 100 & 0\\
+      Shamsad Rahman & 10 & 10 & 60 & 10 & 10 & 100 & 0\\
+      Sofia Vonder Haar & 10 & 10 & 10 & 60 & 10 & 100 & 0\\
+      \hline
+      St Dev & 22.4 & 22.4 & 22.4 & 22.4 & 22.4 & 0 & 0\\
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\vspace{0.2in}
+
+\noindent Date: \today.
+}
+%  -----------------------------------------
+
+%  TODO LIST (COMPLETE THE FULL CHECKLIST - USE AS EXAMPLE THE FIRST CHECKED BOXES!) ----------------------
+\newcommand{\addtodo}{
+\clearpage
+\thispagestyle{empty}
+
+\section*{Read Carefully. Important!}
+
+\noindent By electronically uploading this assignment to Brightspace you acknowledge these statements and accept any repercussions if in any violation of ANY Purdue Academic Misconduct policies. You must upload your homework on time for it to be graded. No late assignments will be accepted. {\bf Only the last uploaded version of your assignment before the due date will be graded}.
+
+\vspace{0.2in}
+
+\noindent {\bf NOTE:} You should aim to submit no later than 30 minutes before the deadline, as there could be last minute network traffic that would cause your assignment to be late, resulting in a grade of zero. 
+
+\vspace{0.2in}
+
+\noindent When submitting your assignment it is assumed that every student considers the below checklist, as there are grading consequences otherwise (e.g., not submitting a cover sheet is an automatic grade of ZERO).
+
+\begin{todolist}
+
+    \item[\done] Your solutions were prepared using the \LaTeX template provided in Brightspace. 
+    \item[\done] Your submission has a cover sheet as its first page and this checklist as its second page, according to the template provided.
+	 \item[\done] All of your solutions (program code, etc.) are included in the submission as requested. % Check this checkbox and the following ones if satisfied <---
+    \item[\done] You have not included any screen shots, photos, etc. (plots should be intermediately saved as .png files and then added into your .tex file). % <---
+	 \item [\done] All math notation and algorithms (algorithmic environment) are created using appropriate \LaTeX code (no pictures, handwritten solutions, etc.). % <---
+    \item[\done]  The .pdf is submitted as an individual file and not in a {\tt .zip}.
+    \item[\done]  You kept the \LaTeX source code in your files until this assignment is graded, in case you are required to show proof of creating your assignment using \LaTeX.  % <---
+    \item[\done]  If submitting with a partner, your partner is added in the submission section in Gradescope after you upload your file. % <---
+    \item[\done]  You have correctly matched each question to its page \# in the .pdf submission in the Gradescope section (after you uploaded your file).
+    \item[\done]  Watch videos on creating pseudocode if you need a refresher or quick reference to the idea. These are good starter videos:    % <---
+    
+     \HREF{https://www.youtube.com/watch?v=4jLO0vXPktU}{www.youtube.com/watch?v=4jLO0vXPktU} 
+    
+    \HREF{https://www.youtube.com/watch?v=yGvfltxHKUU}{www.youtube.com/watch?v=yGvfltxHKUU}
+\end{todolist}
+}
+
+%% LaTeX
+% Für alle, die die Schönheit von Wissenschaft anderen zeigen wollen
+% For anyone who wants to show the beauty of science to others
+
+%  -----------------------------------------
+\begin{document}
+
+\addcoversheet
+\addtodo
+
+\fancyhead[L]{\textbf{Table of Contents}}
+\newpage
+\tableofcontents
+
+\newpage
+\fancyhead[L]{\textbf{Executive Summary}}
+\section{Executive Summary}
+\subsection{Introduction}
+Machine learning is the pinnacle of AI, and the internet has made it easier than ever to utilize machine learning applications. In this project, we aim to train a voting-based optimization algorithm to perform adversarial attacks on a pre-trained binary image classifier. The objective is to fool the classifier by changing a specific number of pixels in the image. We will use five different machine learning and/or optimization algorithms that will be placed within another algorithm to assign weights to the other five. This innovative approach leverages the power of machine learning to tackle a complex challenge.
+
+\subsection{Project Statement}
+To evaluate the success of the algorithm in this project, we have defined several criteria. The primary criteria are the ability of the algorithm to fool the pre-trained binary image classifier by changing the exact number of pixels specified in the budget. The budget is specified as a scalar, which indicates the expected number of pixels to be changed, in terms of the ratio of the image size. For example, a budget of 0.01 means that only 1\% of the available pixels can be changed. Another criterion is the robustness of the algorithm, which refers to the algorithm's ability to work on different types of images and image sizes. We will also measure the performance of the individual algorithms used within the voting-based optimization algorithm and their respective weights assigned by the optimizer. Finally, the time required for the algorithm to execute successfully will also be evaluated as it is crucial in practical applications. By considering these criteria, we will be able to determine the effectiveness of the voting-based optimization algorithm in performing successful adversarial attacks on the pre-trained binary image classifier.
+
+\subsection{Binary Classifier}
+Information about Binary Classifier and why hard
+
+\fancyhead[L]{\textbf{Development}}
+\section{Adversarial Algorithm Development}
+\subsection{Adversarial attacks considered:}
+\noindent Attacks
+
+\subsection{Our Adversarial Attacks:}
+\subsubsection{Sub-Algorithm 1: }
+\subsubsection{Sub-Algorithm 2: }
+\subsubsection{Sub-Algorithm 3: }
+\subsubsection{Sub-Algorithm 4: }
+\subsubsection{Sub-Algorithm 5: }
+
+
+\fancyhead[L]{\textbf{Conclusion}}
+\section{Conclusion}
+
+Team 13's Good Engineering website is the perfect solution for computer reservation management. The website is designed with good web design principles and high security to ensure a user-friendly and comfortable experience for all employees. The website's database system is clear and concise enough for easy computer inventory understanding for IT managers to manipulate to their liking. It's designed to handle large volumes of data, ensuring that all reservations and user information are stored and managed in an organized and efficient manner. So whether a company is managing a large team or a small one, it can trust that Good Engineering's website is an efficient and reliable resource management system.
+
+\newpage
+\fancyhead[L]{\textbf{Appendix}}
+\section{Appendix}
+\subsection{Sub-Algorithm Code and Analysis}
+\subsubsection{Sub-Algorithm 1:}
+Sub-Algorithm 1 Description
+\begin{lstlisting}[language=R,frame=single]
+\end{lstlisting}
+
+\subsubsection{Sub-Algorithm 2:}
+Sub-Algorithm 2 Description
+\begin{lstlisting}[language=R,frame=single]
+\end{lstlisting}
+
+\subsubsection{Sub-Algorithm 3:}
+Sub-Algorithm 3 Description
+\begin{lstlisting}[language=R,frame=single]
+\end{lstlisting}
+
+\subsubsection{Sub-Algorithm 4:}
+Sub-Algorithm 4 Description
+\begin{lstlisting}[language=R,frame=single]
+\end{lstlisting}
+
+\subsubsection{Sub-Algorithm 5:}
+Sub-Algorithm 5 Description
+\begin{lstlisting}[language=R,frame=single]
+\end{lstlisting}
+
+\subsection{Main-Algorithm Code and Analysis}
+\subsubsection{Main-Algorithm:}
+Main-Algorithm 1 Description
+\begin{lstlisting}[language=R,frame=single]
+\end{lstlisting}
+
+\subsection{Technical Challenges}
+
+\textbf{Challenge 1: }\newline
+
+
+\noindent \textbf{Challenge 2: }\newline
+
+
+\subsection{Testing and Performance}
+
+
+\fancyhead[L]{\textbf{References}}
+\section{References}
+\begin{enumerate}
+    \item 
+    \item 
+    \item
+‌
+
+\end{enumerate}
+
+\end{document}
+
